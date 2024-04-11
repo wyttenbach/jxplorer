@@ -32,6 +32,7 @@ sftp> ls
 
 	<property name="jars" value="jars"/>
     <property name="jackson" value="jackson"/>
+    <property name="jackson_jars" value="jackson/lib"/>
     <property name="jasper" value="jasper"/>
 	<property name="src" value="src"/>
     <property name="help" value="help"/>
@@ -242,6 +243,7 @@ sftp> ls
         <mkdir dir="${dist}/jxplorer/jars"/>
         <copy todir="${dist}/jxplorer/jars">
             <fileset dir="${jars}" includes="*.jar"/>
+            <fileset dir="${jackson_jars}" includes="*.jar"/>
             <fileset dir="." includes="jxplorer.jar"/>
         </copy>
         <copy file="README.TXT" tofile="README.${version_number}.TXT"></copy>
@@ -256,9 +258,9 @@ sftp> ls
         <copy todir="${dist}/jxplorer/security.default" overwrite="true">
             <fileset dir="security.default"/>
         </copy>
-        <copy todir="${dist}/jxplorer/plugins" overwrite="true">
-            <fileset dir="plugins"/>
-        </copy>
+        <!-- <copy todir="${dist}/jxplorer/plugins" overwrite="true"> -->
+        <!--     <fileset dir="plugins"/> -->
+        <!-- </copy> -->
         <copy todir="${dist}/jxplorer/language" overwrite="true">
             <fileset dir="language"/>
         </copy>
@@ -277,9 +279,9 @@ sftp> ls
         <copy todir="${dist}/jxplorer/src" overwrite="true">
             <fileset dir="src" excludes="com/pegacat/jxworkbench/**/*.java"/>
         </copy>
-        <copy todir="${dist}/jxplorer/JXplorer LDAP Browser.app" overwrite="true">
-            <fileset dir="JXplorer LDAP Browser.app"/>
-        </copy>
+        <!-- <copy todir="${dist}/jxplorer/JXplorer LDAP Browser.app" overwrite="true"> -->
+        <!--     <fileset dir="JXplorer LDAP Browser.app"/> -->
+        <!-- </copy> -->
 
         <fixcrlf srcdir="${dist}"
             eol="unix"
@@ -296,9 +298,9 @@ sftp> ls
         <chmod dir="${dist}" perm="755" 
                includes="**/*.sh"/>
 
-        <chmod file="${dist}/jxplorer/JXplorer LDAP Browser.app/Contents/PkgInfo" perm="755"/>
+        <!-- <chmod file="${dist}/jxplorer/JXplorer LDAP Browser.app/Contents/PkgInfo" perm="755"/> -->
 
-        <chmod file="${dist}/jxplorer/JXplorer LDAP Browser.app/Contents/MacOS/JXplorer LDAP Browser" perm="755"/>
+        <!-- <chmod file="${dist}/jxplorer/JXplorer LDAP Browser.app/Contents/MacOS/JXplorer LDAP Browser" perm="755"/> -->
 
     </target>
 
