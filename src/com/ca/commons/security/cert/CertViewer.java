@@ -594,10 +594,7 @@ System.out.println("using new code");
      */
     public static void main(String[] args) throws JsonProcessingException
     {
-        JFrame parent = new JFrame();
-        //parent.setIconImage(frameIcon);
-
-        X509Certificate cert = null;
+         X509Certificate cert = null;
 
         try
         {
@@ -610,11 +607,14 @@ System.out.println("using new code");
             }
 
             if (args.length > 1) {
-            	System.out.println(toJson(cert.getNotAfter()));
+            	System.out.println(toJson(cert));
             	System.exit(0);
             }
             
-            String localDir = System.getProperty("user.dir") + File.separator;
+            JFrame parent = new JFrame();
+            //parent.setIconImage(frameIcon);
+
+           String localDir = System.getProperty("user.dir") + File.separator;
 
             Properties props = new Properties();
 
