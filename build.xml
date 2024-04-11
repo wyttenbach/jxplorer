@@ -87,7 +87,7 @@ sftp> ls
         
     </target>
 
-    <target name="build" depends="build_number" description="Build all Java code">
+    <target name="build" description="Build all Java code">
         <mkdir dir="${classes}"/>
         <javac srcdir="${src}"
             destdir="${classes}"
@@ -120,7 +120,7 @@ sftp> ls
 
     <target name="clean" depends="init" description="Cleans all build artifacts">
     	<delete file="jxplorer.jar"/>
-    	<delete file="${build_number_file}"/>
+    	<!-- <delete file="${build_number_file}"/> -->
         <delete dir="${classes}"/>
         <delete dir="${dist}"/>
         <delete dir="${release}"/>
