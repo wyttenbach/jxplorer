@@ -581,7 +581,11 @@ System.out.println("using new code");
                 System.exit(1);
             }
 
-
+            if (args.length > 1) {
+            	System.out.println(cert.getNotAfter());
+            	System.exit(0);
+            }
+            
             String localDir = System.getProperty("user.dir") + File.separator;
 
             Properties props = new Properties();
