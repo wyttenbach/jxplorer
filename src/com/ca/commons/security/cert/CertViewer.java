@@ -592,7 +592,7 @@ System.out.println("using new code");
     /**
      * Main method, the starting point of this program.
      */
-    public static void main(String[] args)
+    public static void main(String[] args) throws JsonProcessingException
     {
         JFrame parent = new JFrame();
         //parent.setIconImage(frameIcon);
@@ -610,7 +610,7 @@ System.out.println("using new code");
             }
 
             if (args.length > 1) {
-            	System.out.println(cert.getNotAfter());
+            	System.out.println(toJson(cert.getNotAfter()));
             	System.exit(0);
             }
             
