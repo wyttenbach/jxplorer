@@ -1,21 +1,40 @@
 package com.ca.commons.security.cert;
 
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
+import java.awt.FlowLayout;
+import java.awt.Frame;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.security.cert.CertificateParsingException;
+import java.security.cert.X509Certificate;
 import java.util.Properties;
-
-import java.io.*;
-
-import java.security.cert.*;
-
-import com.ca.commons.security.cert.extensions.*;
-import com.ca.commons.security.asn1.*;
-import com.ca.commons.security.util.CertUtil;
-
-import com.ca.commons.cbutil.*;
-
 import java.util.StringTokenizer;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JTabbedPane;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+
+import com.ca.commons.cbutil.CBButton;
+import com.ca.commons.cbutil.CBDialog;
+import com.ca.commons.cbutil.CBFileFilter;
+import com.ca.commons.cbutil.CBIntText;
+import com.ca.commons.cbutil.CBSecurity;
+import com.ca.commons.cbutil.CBUtility;
+import com.ca.commons.cbutil.Theme;
+import com.ca.commons.security.util.CertUtil;
 
 /**
  * <p>A certificate viewer which is similar to the Microsoft's,
@@ -34,6 +53,7 @@ import java.util.StringTokenizer;
 
 // TODO: logging, and bubble exception properly from CertUtil
 
+@SuppressWarnings("serial")
 public class CertViewer extends CBDialog
 {
     /**
@@ -64,6 +84,7 @@ public class CertViewer extends CBDialog
 	private CertGeneralViewPanel generalView = null;
 	private CertDetailsViewPanel detailsView = null;
 	private CertPathViewPanel pathView = null;
+	@SuppressWarnings("unused")
 	private CBButton okButton, saveButton, loadButton;
 
 
@@ -559,6 +580,13 @@ System.out.println("using new code");
 
         return buffer;
     }
+
+	public static String toJson(Object object) throws JsonProcessingException {
+		ObjectMapper mapper = new ObjectMapper();
+		mapper.registerModule(new JavaTimeModule());
+		String jsonString = mapper.writeValueAsString(object);
+		return jsonString;
+	}
 
 
     /**

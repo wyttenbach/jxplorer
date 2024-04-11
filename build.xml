@@ -31,6 +31,7 @@ sftp> ls
 	-->
 
 	<property name="jars" value="jars"/>
+    <property name="jackson" value="jackson"/>
     <property name="jasper" value="jasper"/>
 	<property name="src" value="src"/>
     <property name="help" value="help"/>
@@ -74,6 +75,7 @@ sftp> ls
 
     <path id="lib">
         <fileset dir="${jars}" includes="*.jar"/>
+        <fileset dir="${jackson}/lib" includes="*.jar"/>
         <!-- <fileset dir="${jasper}/lib" includes="*.jar"/> -->
         <!-- <fileset dir="${jasper}/lib_extras/" includes="*.jar"/> -->
     </path>
