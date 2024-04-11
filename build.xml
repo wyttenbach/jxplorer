@@ -96,8 +96,8 @@ sftp> ls
             optimize="${compile.optimize}"
             deprecation="off"
             nowarn="off"
-            target="11"
-            source="11"
+            target="1.8"
+            source="1.8"
             verbose="off">
         </javac>
     </target>
