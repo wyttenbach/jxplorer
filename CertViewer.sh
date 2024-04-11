@@ -1,1 +1,1 @@
-java -cp classes com.ca.commons.security.cert.CertViewer
+java -cp classes com.ca.commons.security.cert.CertViewer "$@"
